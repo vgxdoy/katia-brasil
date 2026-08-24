@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   TELA PRINCIPAL
+========================= */
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at top left, #ff9a9e, transparent 40%),
+        radial-gradient(circle at bottom right, #fad0c4, transparent 40%),
+        linear-gradient(135deg, #ff758c, #ff7eb3);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================
+   CORAÇÕES
+========================= */
+
+.hearts span {
+    position: absolute;
+    font-size: 25px;
+    animation: floating 6s linear infinite;
+    opacity: 0.7;
+}
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hearts span:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(4) {
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(5) {
+    left: 90%;
+    animation-delay: 1.5s;
+}
+
+@keyframes floating {
+    0% {
+        bottom: -50px;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    100% {
+        bottom: 110%;
+        transform: translateX(40px) rotate(360deg);
+    }
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: 88%;
+    max-width: 420px;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2);
+
+    position: relative;
+    z-index: 10;
+
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.emoji {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 32px;
+    color: #ff4f70;
+    margin-bottom: 15px;
+}
+
+.question {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #333;
+}
+
+.subtext {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #888;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.buttons {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+#yesButton {
+    background: #ff4f70;
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(255, 79, 112, 0.35);
+}
+
+#yesButton:hover {
+    transform: scale(1.08);
+}
+
+#noButton {
+    background: #eee;
+    color: #555;
+
+    position: relative;
+}
+
+#message {
+    min-height: 25px;
+    margin-top: 20px;
+
+    color: #ff4f70;
+    font-weight: 600;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   TELA DE SUCESSO
+========================= */
+
+.success {
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    position: relative;
+
+    background-image: url("foto.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.successOverlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.75)
+        );
+}
+
+.successContent {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: white;
+
+    animation: successAppear 1.2s ease;
+}
+
+@keyframes successAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bigHeart {
+    font-size: 70px;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.successContent h1 {
+    color: white;
+    font-size: 45px;
+    margin-top: 15px;
+}
+
+.successContent h2 {
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+.successContent p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.successContent .small {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    .card {
+        padding: 35px 20px;
+    }
+
+    .question {
+        font-size: 23px;
+    }
+
+    button {
+        padding: 14px 22px;
+        font-size: 16px;
+    }
+
+    .successContent h1 {
+        font-size: 38px;
+    }
+
+    .successContent h2 {
+        font-size: 22px;
+    }
+}
